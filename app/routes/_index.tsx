@@ -1,4 +1,5 @@
-import type { Route } from "./+types/home";
+import type { Route } from ".react-router/types/app/routes/+types/_index";
+import ErrorMessage from "~/components/error-message";
 
 export function meta({}: Route.MetaArgs) {
 	return [
@@ -10,9 +11,8 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
 	return (
 		<div>
-			<button type="button" className="btn">
-				hello world
-			</button>
+			<input type="text" className="input" />
+			<ErrorMessage>Some Error Message</ErrorMessage>
 		</div>
 	);
 }
