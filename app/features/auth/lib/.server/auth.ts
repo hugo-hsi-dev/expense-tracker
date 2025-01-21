@@ -9,4 +9,9 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 	},
+	logger: {
+		log: (level, message) => {
+			console.log(level, message);
+		},
+	},
 });
