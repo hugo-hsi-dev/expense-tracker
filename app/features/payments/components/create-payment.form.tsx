@@ -17,6 +17,7 @@ export default function CreatePaymentForm() {
 			amount: "0",
 			name: "",
 		},
+		onSubmit() {},
 	});
 
 	return (
