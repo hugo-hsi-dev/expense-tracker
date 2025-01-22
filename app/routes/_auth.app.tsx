@@ -137,7 +137,7 @@ export default function AppRoute({ loaderData }: Route.ComponentProps) {
 	});
 
 	return (
-		<>
+		<div className="w-screen h-screen">
 			<div className="navbar bg-base-100 shadow-sm">
 				<div className="flex-1">
 					<span className="text-xl btn btn-ghost">Expense Tracker</span>
@@ -190,7 +190,7 @@ export default function AppRoute({ loaderData }: Route.ComponentProps) {
 					</fetcher.Form>
 				</div>
 			</div>
-			<main className="w-screen h-screen flex flex-col gap-6 items-center mt-24">
+			<main className="flex flex-col gap-6 items-center pt-24">
 				<h1 className="text-3xl font-bold">{loaderData.name}</h1>
 				<div>Budget remaining for this month: ${loaderData.currentBudget}</div>
 				<Link className="btn btn-wide" to="/settings">
@@ -204,6 +204,6 @@ export default function AppRoute({ loaderData }: Route.ComponentProps) {
 					<PaymentsTable payments={fetcher.data ?? loaderData.payments} />
 				</section>
 			</main>
-		</>
+		</div>
 	);
 }
