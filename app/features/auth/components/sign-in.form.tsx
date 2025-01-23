@@ -1,6 +1,6 @@
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Form, useActionData } from "react-router";
+import { Form, Link, useActionData } from "react-router";
 import ErrorMessage from "~/components/error-message";
 import { signInZod } from "~/features/auth/schemas/sign-in.zod";
 import type { clientAction } from "~/routes/_unauth.sign-in";
@@ -38,6 +38,12 @@ export default function SignInForm() {
 					defaultValue={fields.password.initialValue}
 				/>
 				<ErrorMessage>{fields.password.errors ?? form.errors}</ErrorMessage>
+				<p className="mb-2">
+					Don't have an account?{" "}
+					<Link to="/sign-up" className="link">
+						Create an account
+					</Link>
+				</p>
 				<button type="submit" className="btn btn-neutral">
 					Submit
 				</button>
