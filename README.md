@@ -1,100 +1,26 @@
-# Welcome to React Router!
+# Expense Tracker  
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A lightweight expense tracking application built to explore the latest framework capabilities of **React Router v7**. This project emphasizes modern web development practices and demonstrates how to create resilient applications that function seamlessly even when client-side JavaScript is disabled.  
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Features  
+- Server-first architecture for routing and state management.  
+- Minimalist design focused on simplicity and usability.  
+- Fully functional without relying on client-side JavaScript.  
+- Built with React Router v7's new framework features to investigate its potential for modern application development.  
 
-## Features
+## Goals  
+This project was created to:  
+1. Explore React Router v7's framework capabilities, which merge functionality traditionally associated with Remix.  
+2. Focus on best practices in routing, data loading, and state management.  
+3. Build an application that prioritizes performance and reliability over unnecessary client-side complexity.  
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Getting Started  
 
-## Getting Started
+### Prerequisites  
+- Node.js (version 18 or later recommended).  
+- pnpm for dependency management.  
 
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-This template includes three Dockerfiles optimized for different package managers:
-
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
-
-To build and run using Docker:
-
-```bash
-# For npm
-docker build -t my-app .
-
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
-
-# For bun
-docker build -f Dockerfile.bun -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+### Installation  
+1. Clone the repository:  
+   ```bash  
+   git clone https://github.com/your-username/expense-tracker.git  
