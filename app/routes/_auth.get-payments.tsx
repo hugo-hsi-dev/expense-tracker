@@ -1,11 +1,10 @@
 import type { Route } from ".react-router/types/app/routes/+types/_auth.get-payments";
 import { auth } from "~/features/auth/lib/.server/auth";
-import { monthAndYearZod } from "~/features/payments/schemas/month-and-year.zod";
+import { monthAndYearZod } from "~/features/history/schemas/month-and-year.zod";
 import type { SelectPayment } from "~/features/payments/schemas/payment.type";
 import { db } from "~/lib/.server/db";
 
 export async function loader({ request }: Route.LoaderArgs) {
-	console.log("this route was hit");
 	const session = await auth.api.getSession({
 		headers: request.headers,
 	});
@@ -19,8 +18,6 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const url = new URL(request.url);
 
 	const selectedMonthAndYearParams = url.searchParams.get("monthAndYear");
-	// const selectedYearString = url.searchParams.get("year");
-	console.log(selectedMonthAndYearParams);
 
 	const selectedMonthAndYear = monthAndYearZod.safeParse(
 		JSON.parse(selectedMonthAndYearParams ?? ""),

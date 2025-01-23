@@ -1,5 +1,5 @@
 import { useFetcher } from "react-router";
-import DeletePaymentForm from "~/features/payments/components/delete-payment.form";
+import DeletePaymentForm from "~/features/payments/components/delete-payment.form/form";
 
 type PaymentTrProps = {
 	id: number;

@@ -6,6 +6,7 @@ type PaymentTableProps = {
 };
 
 export default function PaymentsTable({ payments }: PaymentTableProps) {
+	console.log(payments);
 	return (
 		<div className="overflow-x-auto">
 			<table className="table">

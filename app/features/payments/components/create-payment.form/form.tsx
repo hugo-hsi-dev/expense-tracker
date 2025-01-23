@@ -1,11 +1,16 @@
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Form, useActionData } from "react-router";
+import { useEffect } from "react";
+import { useActionData, useFetcher } from "react-router";
 import ErrorMessage from "~/components/error-message";
 import { createPaymentZod } from "~/features/payments/schemas/create-payment.zod";
-import type { action } from "~/routes/_auth.app";
+import type { action } from "~/routes/_auth.app/route";
 
 export default function CreatePaymentForm() {
+	const fetcher = useFetcher<typeof action>({
+		key: CreatePaymentForm.fetcherKey,
+	});
+
 	const lastResult = useActionData<typeof action>();
 
 	const [form, fields] = useForm({
@@ -17,11 +22,23 @@ export default function CreatePaymentForm() {
 			amount: "0",
 			name: "",
 		},
-		onSubmit() {},
 	});
 
+	useEffect(() => {
+		if (fetcher.state === "submitting") {
+			form.reset();
+		}
+	}, [fetcher.state, form.reset]);
+
 	return (
-		<Form method="POST" id={form.id} onSubmit={form.onSubmit} noValidate>
+		<fetcher.Form
+			method="POST"
+			id={form.id}
+			onSubmit={(e) => {
+				form.onSubmit(e);
+			}}
+			noValidate
+		>
 			<input
 				className="input w-full"
 				type="text"
@@ -38,12 +55,23 @@ export default function CreatePaymentForm() {
 					name={fields.amount.name}
 					defaultValue={fields.amount.initialValue}
 				/>
-				<button type="submit" name="intent" value="create" className="btn">
+				<button type="button" onClick={() => form.reset()}>
+					reset
+				</button>
+				<button
+					type="submit"
+					name="intent"
+					value={CreatePaymentForm.intent}
+					className="btn"
+				>
 					Submit
 				</button>
 			</div>
 
 			<ErrorMessage>{fields.amount.errors ?? form.errors}</ErrorMessage>
-		</Form>
+		</fetcher.Form>
 	);
 }
+
+CreatePaymentForm.intent = "create-payment";
+CreatePaymentForm.fetcherKey = "create-payment";
