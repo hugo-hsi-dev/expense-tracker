@@ -19,6 +19,14 @@ export default function SelectMonthForm({
 		year: currentDate.getFullYear(),
 	});
 
+	if (monthsWithData.length === 0) {
+		return (
+			<button className="btn" type="button">
+				Current
+			</button>
+		);
+	}
+
 	return (
 		<fetcher.Form method="GET" action="/get-payments">
 			<input type="hidden" name="intent" value={SelectMonthForm.intent} />

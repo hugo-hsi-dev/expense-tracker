@@ -29,7 +29,6 @@ export async function loader({ request }: Route.LoaderArgs) {
 	}
 
 	const monthsWithData = getMonthsWithData(payments);
-
 	const currentPayments = getCurrentPayments(payments);
 
 	const remainingBudget = getRemainingBudget(currentPayments, defaultBudget);
