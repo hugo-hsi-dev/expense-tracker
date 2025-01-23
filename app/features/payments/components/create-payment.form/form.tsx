@@ -55,9 +55,6 @@ export default function CreatePaymentForm() {
 					name={fields.amount.name}
 					defaultValue={fields.amount.initialValue}
 				/>
-				<button type="button" onClick={() => form.reset()}>
-					reset
-				</button>
 				<button
 					type="submit"
 					name="intent"
