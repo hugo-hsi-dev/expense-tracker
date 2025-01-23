@@ -5,7 +5,7 @@ export default function getCurrentPayments(payments: SelectPayment[]) {
 	const currentMonth = currentDate.getMonth();
 	const currentYear = currentDate.getFullYear();
 
-	return payments.reduce((prev, { createdAt, ...rest }) => {
+	const filteredPayments = payments.reduce((prev, { createdAt, ...rest }) => {
 		const createdMonth = createdAt.getMonth();
 		const createdYear = createdAt.getFullYear();
 
@@ -14,4 +14,9 @@ export default function getCurrentPayments(payments: SelectPayment[]) {
 		}
 		return prev;
 	}, [] as SelectPayment[]);
+
+	const sortedPayments = filteredPayments.sort((a, b) => {
+		return b.createdAt.getTime() - a.createdAt.getTime();
+	});
+	return sortedPayments;
 }
